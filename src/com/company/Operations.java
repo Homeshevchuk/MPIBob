@@ -31,4 +31,21 @@ public class Operations {
         }
         return Result;
     }
+    static int[][] calculateMAh(int[] d, int[][]MOh,int[] e, int[][] MRh, int[][]MM, int[][] MK){
+        int[][] MAh = new int[Config.H][Config.N];
+        for (int i = 0; i < Config.H; i++) {
+            for(int j = 0;j<Config.N;j++){
+                MAh[i][j] = (d[0]*MOh[i][j])+(e[0]*(Operations.multiplyMatr(Operations.multiplyMatr(MRh, MM), MK))[i][j]);
+            }
+        }
+        return MAh;
+    }
+    static void printArr(int[][] arr){
+        for(int i = 0;i<arr.length;i++){
+            for(int j = 0;j<arr[i].length;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
 }
